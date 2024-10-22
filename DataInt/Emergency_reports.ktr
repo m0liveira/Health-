@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>WeatherAPI_json_pdi</name>
+    <name>Emergency_reports</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,83 +427,29 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2024/10/21 12:09:50.057</created_date>
+    <created_date>2024/10/22 16:34:12.800</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2024/10/21 12:09:50.057</modified_date>
-    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2024/10/22 16:34:12.800</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <order>
     <hop>
-      <from>Data grid</from>
-      <to>REST client</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>REST client</from>
-      <to>Current weather JSON input</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Current weather JSON input</from>
-      <to>Forecast JSON input</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Forecast JSON input</from>
+      <from>Get data from XML</from>
       <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>JSON output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Data grid</name>
-    <type>DataGrid</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>URL</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-        <field_null_if/>
-      </field>
-    </fields>
-    <data>
-      <line>
-        <item>https://goweather.herokuapp.com/weather/Barcelos</item>
-      </line>
-    </data>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Current weather JSON input</name>
-    <type>JsonInput</type>
+    <name>Get data from XML</name>
+    <type>getXMLData</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -516,16 +462,17 @@
     <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
+    <namespaceaware>N</namespaceaware>
+    <ignorecomments>N</ignorecomments>
     <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
+    <validating>N</validating>
+    <usetoken>N</usetoken>
     <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <ignoreMissingPath>Y</ignoreMissingPath>
-    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
-    <includeNulls>N</includeNulls>
     <rownum_field/>
+    <encoding>UTF-8</encoding>
     <file>
-      <name/>
+      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Input\emergency_records.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -533,10 +480,12 @@
     </file>
     <fields>
       <field>
-        <name>Temperature</name>
-        <path>$.temperature</path>
+        <name>ID</name>
+        <xpath>ID</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
         <type>String</type>
-        <format>#</format>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -546,10 +495,12 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Wind</name>
-        <path>$.wind</path>
+        <name>PatientName</name>
+        <xpath>PatientName</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
         <type>String</type>
-        <format>#</format>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -559,10 +510,12 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Description</name>
-        <path>$.description</path>
-        <type>String</type>
-        <format>#</format>
+        <name>Age</name>
+        <xpath>Age</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>Integer</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -572,10 +525,42 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Forecast</name>
-        <path>$.forecast</path>
+        <name>Condition</name>
+        <xpath>Condition</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
         <type>String</type>
-        <format>#</format>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Severity</name>
+        <xpath>Severity</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Timestamp</name>
+        <xpath>Timestamp</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -586,9 +571,11 @@
       </field>
     </fields>
     <limit>0</limit>
-    <IsInFields>Y</IsInFields>
+    <loopxpath>/EmergencyRecords/Emergency</loopxpath>
+    <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
-    <valueField>result</valueField>
+    <XmlField/>
+    <prunePath/>
     <shortFileFieldName/>
     <pathFieldName/>
     <hiddenFieldName/>
@@ -606,60 +593,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>REST client</name>
-    <type>Rest</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <applicationType>TEXT PLAIN</applicationType>
-    <method>GET</method>
-    <url/>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>URL</urlField>
-    <bodyField/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <matrixParameters>
-      </matrixParameters>
-    <result>
-      <name>result</name>
-      <code/>
-      <response_time/>
-      <response_header/>
-    </result>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>192</yloc>
+      <xloc>416</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -676,28 +611,28 @@
     </partitioning>
     <fields>
       <field>
-        <name>Temperature</name>
+        <name>ID</name>
         <rename/>
       </field>
       <field>
-        <name>Wind</name>
+        <name>PatientName</name>
+        <rename>Patient</rename>
+      </field>
+      <field>
+        <name>Age</name>
         <rename/>
       </field>
       <field>
-        <name>Description</name>
+        <name>Condition</name>
         <rename/>
       </field>
       <field>
-        <name>Day</name>
-        <rename>Forecast</rename>
+        <name>Severity</name>
+        <rename/>
       </field>
       <field>
-        <name>Temperature_1</name>
-        <rename>Forecast temperature</rename>
-      </field>
-      <field>
-        <name>Wind_1</name>
-        <rename>Forecast wind</rename>
+        <name>Timestamp</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -710,14 +645,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>192</yloc>
+      <xloc>576</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Forecast JSON input</name>
-    <type>JsonInput</type>
+    <name>JSON output</name>
+    <type>JsonOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -726,78 +661,51 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <readurl>N</readurl>
-    <removeSourceField>N</removeSourceField>
-    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <ignoreMissingPath>Y</ignoreMissingPath>
-    <defaultPathLeafToNull>Y</defaultPathLeafToNull>
-    <includeNulls>N</includeNulls>
-    <rownum_field/>
+    <outputValue>outputValue</outputValue>
+    <jsonBloc>data</jsonBloc>
+    <nrRowsInBloc>0</nrRowsInBloc>
+    <operation_type>writetofile</operation_type>
+    <compatibility_mode>N</compatibility_mode>
+    <encoding>UTF-8</encoding>
+    <addtoresult>N</addtoresult>
     <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
+      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\EmergencyReports</name>
+      <extention>json</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <create_parent_folder>N</create_parent_folder>
+      <DoNotOpenNewFileInit>Y</DoNotOpenNewFileInit>
+      <servlet_output>N</servlet_output>
     </file>
     <fields>
       <field>
-        <name>Day</name>
-        <path>$.day</path>
-        <type>String</type>
-        <format>#</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <name>ID</name>
+        <element>ID</element>
       </field>
       <field>
-        <name>Temperature</name>
-        <path>$.temperature</path>
-        <type>String</type>
-        <format>#</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <name>Patient</name>
+        <element>Patient</element>
       </field>
       <field>
-        <name>Wind</name>
-        <path>$.wind</path>
-        <type>String</type>
-        <format>#</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <name>Age</name>
+        <element>Age</element>
+      </field>
+      <field>
+        <name>Condition</name>
+        <element>Condition</element>
+      </field>
+      <field>
+        <name>Severity</name>
+        <element>Severity</element>
+      </field>
+      <field>
+        <name>Timestamp</name>
+        <element>Timestamp</element>
       </field>
     </fields>
-    <limit>0</limit>
-    <IsInFields>Y</IsInFields>
-    <IsAFile>N</IsAFile>
-    <valueField>Forecast</valueField>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -807,8 +715,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>192</yloc>
+      <xloc>720</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
