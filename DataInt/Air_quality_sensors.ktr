@@ -654,54 +654,6 @@
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>temperature_C</name>
-        <rename/>
-      </field>
-      <field>
-        <name>humidity_percent</name>
-        <rename/>
-      </field>
-      <field>
-        <name>AQI</name>
-        <rename/>
-      </field>
-      <field>
-        <name>status</name>
-        <rename/>
-      </field>
-      <field>
-        <name>air_quality_category</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>JSON output</name>
     <type>JsonOutput</type>
     <description/>
@@ -752,6 +704,14 @@
         <name>air_quality_category</name>
         <element>AQS</element>
       </field>
+      <field>
+        <name>timestamp</name>
+        <element>Date</element>
+      </field>
+      <field>
+        <name>location</name>
+        <element>Location</element>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -763,6 +723,62 @@
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>temperature_C</name>
+        <rename/>
+      </field>
+      <field>
+        <name>humidity_percent</name>
+        <rename/>
+      </field>
+      <field>
+        <name>AQI</name>
+        <rename/>
+      </field>
+      <field>
+        <name>status</name>
+        <rename/>
+      </field>
+      <field>
+        <name>air_quality_category</name>
+        <rename/>
+      </field>
+      <field>
+        <name>timestamp</name>
+        <rename/>
+      </field>
+      <field>
+        <name>location</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
