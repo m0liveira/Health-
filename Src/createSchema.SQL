@@ -1,0 +1,6 @@
+-- SCHEMA: HealthPlus
+
+-- DROP SCHEMA IF EXISTS HealthPlus ;
+
+CREATE SCHEMA IF NOT EXISTS HealthPlus
+    AUTHORIZATION postgres;
