@@ -16,7 +16,7 @@
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>HealthPlus</database>
+    <database>healthplus</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password>
@@ -345,13 +345,13 @@
       <sql/>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Src\createTables.SQL</sqlfilename>
+      <sqlfilename>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Src\createTables.SQL</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>PostgresConnection</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
+      <xloc>448</xloc>
       <yloc>224</yloc>
       <attributes_kjc/>
     </entry>
@@ -385,7 +385,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>528</xloc>
+      <xloc>560</xloc>
       <yloc>224</yloc>
       <attributes_kjc/>
     </entry>
@@ -397,7 +397,7 @@
       <sql/>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Src\createSchema.SQL</sqlfilename>
+      <sqlfilename>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Src\createSchema.SQL</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>PostgresConnection</connection>
       <parallel>N</parallel>

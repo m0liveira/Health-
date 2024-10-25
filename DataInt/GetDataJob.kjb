@@ -327,7 +327,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:/Users/Mateus Oliveira/Desktop/HealthPlus/DataInt/WeatherAPI.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/WeatherAPI.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -366,7 +366,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:/Users/Mateus Oliveira/Desktop/HealthPlus/DataInt/Air_quality_sensors.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/Air_quality_sensors.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -405,7 +405,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:/Users/Mateus Oliveira/Desktop/HealthPlus/DataInt/Emergency_reports.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/Emergency_reports.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

@@ -458,7 +458,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Input\air_quality_sensor_data.csv</filename>
+    <filename>${input}\air_quality_sensor_data.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -672,7 +672,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\AirQualityData</name>
+      <name>${output}\AirQualityData</name>
       <extention>json</extention>
       <append>N</append>
       <split>N</split>
@@ -741,31 +741,24 @@
     <fields>
       <field>
         <name>temperature_C</name>
-        <rename/>
       </field>
       <field>
         <name>humidity_percent</name>
-        <rename/>
       </field>
       <field>
         <name>AQI</name>
-        <rename/>
       </field>
       <field>
         <name>status</name>
-        <rename/>
       </field>
       <field>
         <name>air_quality_category</name>
-        <rename/>
       </field>
       <field>
         <name>timestamp</name>
-        <rename/>
       </field>
       <field>
         <name>location</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>

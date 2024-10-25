@@ -327,7 +327,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Users\Mateus Oliveira\Desktop\HealthPlus\DataInt\EmergencyAnalitycs.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/EmergencyAnalitycs.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

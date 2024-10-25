@@ -440,7 +440,7 @@
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>HealthPlus</database>
+    <database>healthplus</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password>
@@ -890,6 +890,202 @@
     </GUI>
   </step>
   <step>
+    <name>Insert / update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PostgresConnection</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>healthplus</schema>
+      <table>staistics</table>
+      <key>
+        <name>Location</name>
+        <field>location</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>temperature</name>
+        <field>temperature</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>humidity</name>
+        <field>humidity</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>AQI</name>
+        <field>AQI</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>location</name>
+        <rename>Location</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>temperature</name>
+        <rename>temperature</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>humidity</name>
+        <rename>humidity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>AQI</name>
+        <rename>AQI</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1328</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update 2</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PostgresConnection</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>healthplus</schema>
+      <table>eranalytics</table>
+      <key>
+        <name>ID</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Date</name>
+        <field>date</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Condition</name>
+        <field>condition</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Severity</name>
+        <field>severity</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>temperature</name>
+        <field>temperature</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>humidity</name>
+        <field>humidity</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>AQI</name>
+        <field>aqi</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>AQS</name>
+        <field>aqs</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>date</name>
+        <rename>Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>condition</name>
+        <rename>Condition</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>severity</name>
+        <rename>Severity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>temperature</name>
+        <rename>temperature</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>humidity</name>
+        <rename>humidity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>aqi</name>
+        <rename>AQI</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>aqs</name>
+        <rename>AQS</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1328</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>JSON input (Air Quality)</name>
     <type>JsonInput</type>
     <description/>
@@ -913,7 +1109,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\AirQualityData.json</name>
+      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\AirQualityData.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1062,7 +1258,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\EmergencyReports.json</name>
+      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\EmergencyReports.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1535,6 +1731,48 @@
     </GUI>
   </step>
   <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>True</name>
     <type>SelectValues</type>
     <description/>
@@ -1625,202 +1863,6 @@
     </GUI>
   </step>
   <step>
-    <name>Insert / update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>PostgresConnection</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>healthplus</schema>
-      <table>staistics</table>
-      <key>
-        <name>Location</name>
-        <field>location</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>temperature</name>
-        <field>temperature</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>humidity</name>
-        <field>humidity</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>AQI</name>
-        <field>AQI</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>location</name>
-        <rename>Location</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>temperature</name>
-        <rename>temperature</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>humidity</name>
-        <rename>humidity</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AQI</name>
-        <rename>AQI</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update 2</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>PostgresConnection</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>healthplus</schema>
-      <table>eranalytics</table>
-      <key>
-        <name>ID</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Date</name>
-        <field>date</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Condition</name>
-        <field>condition</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Severity</name>
-        <field>severity</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>temperature</name>
-        <field>temperature</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>humidity</name>
-        <field>humidity</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>AQI</name>
-        <field>aqi</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>AQS</name>
-        <field>aqs</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>date</name>
-        <rename>Date</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>condition</name>
-        <rename>Condition</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>severity</name>
-        <rename>Severity</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>temperature</name>
-        <rename>temperature</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>humidity</name>
-        <rename>humidity</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>aqi</name>
-        <rename>AQI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>aqs</name>
-        <rename>AQS</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Unique rows</name>
     <type>Unique</type>
     <description/>
@@ -1851,48 +1893,6 @@
     </remotesteps>
     <GUI>
       <xloc>1184</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 4</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>

@@ -440,7 +440,7 @@
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>HealthPlus</database>
+    <database>healthplus</database>
     <port>5432</port>
     <username>postgres</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password>
@@ -792,7 +792,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\AirQualityData.json</name>
+      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\AirQualityData.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -941,7 +941,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\CurrentWeatherData.json</name>
+      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\CurrentWeatherData.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>

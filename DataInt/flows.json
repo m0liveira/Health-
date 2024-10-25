@@ -1,1 +1,523 @@
-[{"id":"18e201800fb1ceaa","type":"tab","label":"Flow 1","disabled":false,"info":"","env":[]},{"id":"418202298d31837a","type":"inject","z":"18e201800fb1ceaa","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":true,"onceDelay":0.1,"topic":"start","payload":"","payloadType":"date","x":200,"y":740,"wires":[["06c42ee4ee957fc1"]]},{"id":"06c42ee4ee957fc1","type":"postgrestor","z":"18e201800fb1ceaa","name":"","query":"SELECT * FROM staistics;","postgresDB":"e2215d5bb5d50344","output":true,"outputs":1,"throwErrors":false,"x":450,"y":740,"wires":[["73130ce68eaed8a7"]]},{"id":"73130ce68eaed8a7","type":"function","z":"18e201800fb1ceaa","name":"function 1","func":"var data = [];\nvar i;\n\nfor (let i = 0; i < msg.payload.rows.length; i++) {\n    data.push({\n            \"location\": msg.payload.roes[i]['location'],\n            \"temperature\": msg.payload.roes[i]['temperature'],\n            \"humidity\": msg.payload.roes[i]['humidity'],\n            \"aqi\": msg.payload.roes[i]['aqi'],\n        });\n}\n\nmsg.payload = data;\n\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":720,"y":740,"wires":[["08989c75b9cec990","2b7fe48e1fac5715"]]},{"id":"08989c75b9cec990","type":"ui_table","z":"18e201800fb1ceaa","group":"cd22c2ce1731678d","name":"","order":0,"width":0,"height":0,"columns":[],"outputs":0,"cts":false,"x":970,"y":740,"wires":[]},{"id":"2b7fe48e1fac5715","type":"debug","z":"18e201800fb1ceaa","name":"debug 1","active":true,"tosidebar":true,"console":true,"tostatus":false,"complete":"payload","targetType":"msg","statusVal":"","statusType":"auto","x":790,"y":940,"wires":[]},{"id":"6f7c0dee7d5682b9","type":"inject","z":"18e201800fb1ceaa","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":true,"onceDelay":0.1,"topic":"hello","payload":"","payloadType":"date","x":280,"y":1080,"wires":[["95513da64d96b713"]]},{"id":"95513da64d96b713","type":"debug","z":"18e201800fb1ceaa","name":"debug 2","active":true,"tosidebar":true,"console":true,"tostatus":false,"complete":"topic","targetType":"msg","statusVal":"","statusType":"auto","x":530,"y":1080,"wires":[]},{"id":"e2215d5bb5d50344","type":"postgresDB","name":"PostgresConnection","throwErrors":true,"throwErrorsFieldType":"bool","host":"127.0.0.1","hostFieldType":"str","port":"5432","portFieldType":"num","database":"healthplus","databaseFieldType":"str","ssl":"true","sslFieldType":"bool","max":"10","maxFieldType":"num","min":1,"minFieldType":"num","idle":"1000","idleFieldType":"num","connectionTimeout":10000,"connectionTimeoutFieldType":"num","user":"postgres","userFieldType":"str","password":"admin","passwordFieldType":"str"},{"id":"cd22c2ce1731678d","type":"ui_group","name":"Statistics","tab":"deb0a995fb604a05","order":1,"disp":true,"width":"6","collapse":false,"className":""},{"id":"deb0a995fb604a05","type":"ui_tab","name":"Home","icon":"dashboard","disabled":false,"hidden":false}]
+[
+    {
+        "id": "18e201800fb1ceaa",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "418202298d31837a",
+        "type": "inject",
+        "z": "18e201800fb1ceaa",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "start",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "06c42ee4ee957fc1",
+                "1d94fb4e1b62ceae"
+            ]
+        ]
+    },
+    {
+        "id": "73130ce68eaed8a7",
+        "type": "function",
+        "z": "18e201800fb1ceaa",
+        "name": "function 1",
+        "func": "var data = [];\nvar i;\n\nfor (let i = 0; i < msg.payload.rows.length; i++) {\n    data.push({\n            \"location\": msg.payload.rows[i]['location'],\n            \"temperature\": msg.payload.rows[i]['temperature'],\n            \"apparenttemp\": msg.payload.rows[i]['apparenttemp'],\n            \"humidity\": msg.payload.rows[i]['humidity'],\n            \"wind\": msg.payload.rows[i]['wind'],\n            \"aqi\": msg.payload.rows[i]['aqi'],\n        });\n}\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "2b7fe48e1fac5715",
+                "c385c45e24e6c2f9",
+                "29e6ac613ddab5d2",
+                "8082a3c880a39315",
+                "62cd70748780867e",
+                "5b058c59b7268598"
+            ]
+        ]
+    },
+    {
+        "id": "2b7fe48e1fac5715",
+        "type": "debug",
+        "z": "18e201800fb1ceaa",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "06c42ee4ee957fc1",
+        "type": "postgrestor",
+        "z": "18e201800fb1ceaa",
+        "name": "",
+        "query": "SELECT * FROM healthplus.alerts;",
+        "postgresDB": "e2215d5bb5d50344",
+        "output": true,
+        "outputs": 1,
+        "throwErrors": false,
+        "x": 310,
+        "y": 340,
+        "wires": [
+            [
+                "73130ce68eaed8a7"
+            ]
+        ]
+    },
+    {
+        "id": "c385c45e24e6c2f9",
+        "type": "ui_table",
+        "z": "18e201800fb1ceaa",
+        "group": "1b950d7395b59acb",
+        "name": "Regions on alert of danger",
+        "order": 0,
+        "width": "14",
+        "height": "5",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 840,
+        "y": 140,
+        "wires": [],
+        "inputLabels": [
+            "Regions on alert of danger"
+        ]
+    },
+    {
+        "id": "f3306a02827cc392",
+        "type": "ui_gauge",
+        "z": "18e201800fb1ceaa",
+        "name": "",
+        "group": "1b950d7395b59acb",
+        "order": 1,
+        "width": "4",
+        "height": "4",
+        "gtype": "donut",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "100",
+        "colors": [
+            "#00b3a7",
+            "#7ee600",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "25",
+        "diff": true,
+        "className": "",
+        "x": 820,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "29e6ac613ddab5d2",
+        "type": "function",
+        "z": "18e201800fb1ceaa",
+        "name": "function 3",
+        "func": "var data;\n\ndata = msg.payload[0]['humidity'];\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 200,
+        "wires": [
+            [
+                "f3306a02827cc392",
+                "b0248e9b67cc109d"
+            ]
+        ]
+    },
+    {
+        "id": "b0248e9b67cc109d",
+        "type": "debug",
+        "z": "18e201800fb1ceaa",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "187c83152be3cec6",
+        "type": "ui_gauge",
+        "z": "18e201800fb1ceaa",
+        "name": "",
+        "group": "1b950d7395b59acb",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "donut",
+        "title": "Temperature",
+        "label": "Cº",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "100",
+        "colors": [
+            "#00b3a7",
+            "#7ee600",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "25",
+        "diff": true,
+        "className": "",
+        "x": 830,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8082a3c880a39315",
+        "type": "function",
+        "z": "18e201800fb1ceaa",
+        "name": "function 2",
+        "func": "var data;\n\ndata = msg.payload[0]['temperature'];\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "187c83152be3cec6",
+                "23fe02e1aa72f696"
+            ]
+        ]
+    },
+    {
+        "id": "23fe02e1aa72f696",
+        "type": "debug",
+        "z": "18e201800fb1ceaa",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "af4d6e35a5d9e990",
+        "type": "ui_gauge",
+        "z": "18e201800fb1ceaa",
+        "name": "",
+        "group": "1b950d7395b59acb",
+        "order": 1,
+        "width": "4",
+        "height": "4",
+        "gtype": "donut",
+        "title": "Wind",
+        "label": "Km/h",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#74b300",
+            "#e2e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "35",
+        "diff": true,
+        "className": "",
+        "x": 830,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "62cd70748780867e",
+        "type": "function",
+        "z": "18e201800fb1ceaa",
+        "name": "function 4",
+        "func": "var data;\n\ndata = msg.payload[0]['wind'];\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 400,
+        "wires": [
+            [
+                "af4d6e35a5d9e990",
+                "63b4e1c6b7386987"
+            ]
+        ]
+    },
+    {
+        "id": "63b4e1c6b7386987",
+        "type": "debug",
+        "z": "18e201800fb1ceaa",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5b058c59b7268598",
+        "type": "ui_text",
+        "z": "18e201800fb1ceaa",
+        "group": "1b950d7395b59acb",
+        "order": 4,
+        "width": "14",
+        "height": "1",
+        "name": "",
+        "label": "List of regions on danger alert",
+        "format": "",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "Verdana,Verdana,Geneva,sans-serif",
+        "fontSize": "23",
+        "color": "#000000",
+        "x": 850,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1d94fb4e1b62ceae",
+        "type": "postgrestor",
+        "z": "18e201800fb1ceaa",
+        "name": "",
+        "query": "SELECT * FROM healthplus.staistics;",
+        "postgresDB": "e2215d5bb5d50344",
+        "output": true,
+        "outputs": 1,
+        "throwErrors": false,
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "15a344bbf6f04d3a"
+            ]
+        ]
+    },
+    {
+        "id": "15a344bbf6f04d3a",
+        "type": "function",
+        "z": "18e201800fb1ceaa",
+        "name": "function 5",
+        "func": "var data = [];\nvar i;\n\nfor (let i = 0; i < msg.payload.rows.length; i++) {\n    data.push({\n            \"location\": msg.payload.rows[i]['location'],\n            \"temperature\": msg.payload.rows[i]['temperature'],\n            \"humidity\": msg.payload.rows[i]['humidity'],\n            \"aqi\": msg.payload.rows[i]['aqi'],\n        });\n}\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 500,
+        "wires": [
+            [
+                "d3050b86756cd403"
+            ]
+        ]
+    },
+    {
+        "id": "d3050b86756cd403",
+        "type": "function",
+        "z": "18e201800fb1ceaa",
+        "name": "function 6",
+        "func": "var data = [];\n\nmsg.payload.forEach(obj => {\n    data.push({\n        \"location\": obj.location,\n        \"temperature\": obj.temperature,\n    });\n});\n\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 500,
+        "wires": [
+            [
+                "bb304de4a29b9df0",
+                "5d5d6c0fa7ccc696"
+            ]
+        ]
+    },
+    {
+        "id": "bb304de4a29b9df0",
+        "type": "ui_chart",
+        "z": "18e201800fb1ceaa",
+        "name": "",
+        "group": "8b164f6f1b5059ee",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 590,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d5d6c0fa7ccc696",
+        "type": "debug",
+        "z": "18e201800fb1ceaa",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e2215d5bb5d50344",
+        "type": "postgresDB",
+        "name": "PostgresConnection",
+        "throwErrors": true,
+        "throwErrorsFieldType": "bool",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "healthplus",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "max": "10",
+        "maxFieldType": "num",
+        "min": "1",
+        "minFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "postgres",
+        "userFieldType": "str",
+        "password": "admin",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "1b950d7395b59acb",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "bd0488f5de3bf5df",
+        "order": 1,
+        "disp": false,
+        "width": "14",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8b164f6f1b5059ee",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "f14a59f93feacd2e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bd0488f5de3bf5df",
+        "type": "ui_tab",
+        "name": "Alerts",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f14a59f93feacd2e",
+        "type": "ui_tab",
+        "name": "Statistics",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
