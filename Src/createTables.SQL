@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS healthplus.eranalytics
     "temperature" integer,
     "humidity" integer,
     "aqi" integer,
-    "aqs" varchar(255),
+    "aqs" varchar(255)
 )
 
 TABLESPACE pg_default;
