@@ -5,6 +5,8 @@ extrair, transformar e carregar dados provenientes de sensores urbanos de qualid
 de emergências médicas, e dados meteorológicos. O objetivo é integrar essas diferentes fontes de
 dados para analisar a correlação entre condições atmosféricas e eventos de saúde.
 
+- Repositório GitHub: [HealthPlus](https://github.com/m0liveira/HealthPlus)
+
 ## Autores
 
 - Mateus Oliveira - a20350
@@ -122,4 +124,4 @@ dados para analisar a correlação entre condições atmosféricas e eventos de 
 
 ## Demonstração
 
-![QR](./Assets/qr)
+<img src="./Assets/qr" alt="QR code" width="300" height="300">
