@@ -124,4 +124,4 @@ dados para analisar a correlação entre condições atmosféricas e eventos de 
 
 ## Demonstração
 
-<img src="./Assets/qr" alt="QR code" width="300" height="300">
+<img src="./Assets/qr.jpg" alt="QR code" width="300" height="300">
