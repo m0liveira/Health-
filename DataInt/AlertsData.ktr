@@ -792,7 +792,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\AirQualityData.json</name>
+      <name>${Internal.Entry.Current.Directory}/../Data/Output/AirQualityData.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -941,7 +941,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\CurrentWeatherData.json</name>
+      <name>${Internal.Entry.Current.Directory}/../Data/Output/CurrentWeatherData.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>

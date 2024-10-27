@@ -812,6 +812,38 @@
                   <mask/>
                 </value>
               </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>Condition</leftvalue>
+                <function>=</function>
+                <rightvalue/>
+                <value>
+                  <name>constant</name>
+                  <type>String</type>
+                  <text>Heart Attack</text>
+                  <length>-1</length>
+                  <precision>-1</precision>
+                  <isnull>N</isnull>
+                  <mask/>
+                </value>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>Condition</leftvalue>
+                <function>=</function>
+                <rightvalue/>
+                <value>
+                  <name>constant</name>
+                  <type>String</type>
+                  <text>Seizure</text>
+                  <length>-1</length>
+                  <precision>-1</precision>
+                  <isnull>N</isnull>
+                  <mask/>
+                </value>
+              </condition>
             </conditions>
           </condition>
         </conditions>
@@ -1109,7 +1141,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\AirQualityData.json</name>
+      <name>${Internal.Entry.Current.Directory}/../Data/Output/AirQualityData.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1258,7 +1290,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Data\Output\EmergencyReports.json</name>
+      <name>${Internal.Entry.Current.Directory}/../Data/Output/EmergencyReports.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>

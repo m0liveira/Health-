@@ -614,98 +614,6 @@
     </GUI>
   </step>
   <step>
-    <name>REST client</name>
-    <type>Rest</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <applicationType>TEXT PLAIN</applicationType>
-    <method>GET</method>
-    <url/>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>URL</urlField>
-    <bodyField/>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <matrixParameters>
-      </matrixParameters>
-    <result>
-      <name>result</name>
-      <code/>
-      <response_time/>
-      <response_header/>
-    </result>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>384</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Temperature</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Apparent_temperature</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Wind</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Forecast JSON input</name>
     <type>JsonInput</type>
     <description/>
@@ -777,38 +685,6 @@
     </GUI>
   </step>
   <step>
-    <name>Select values </name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Days</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>JSON output</name>
     <type>JsonOutput</type>
     <description/>
@@ -827,7 +703,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\ForecastData</name>
+      <name>${Internal.Entry.Current.Directory}/../Data/Output/ForecastData</name>
       <extention>json</extention>
       <append>N</append>
       <split>N</split>
@@ -877,14 +753,14 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\Mateus Oliveira\Desktop\HealthPlus\Data\Output\CurrentWeatherData</name>
+      <name>${Internal.Entry.Current.Directory}/../Data/Output/CurrentWeatherData</name>
       <extention>json</extention>
       <append>N</append>
       <split>N</split>
       <haspartno>N</haspartno>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <create_parent_folder>N</create_parent_folder>
+      <create_parent_folder>Y</create_parent_folder>
       <DoNotOpenNewFileInit>Y</DoNotOpenNewFileInit>
       <servlet_output>N</servlet_output>
     </file>
@@ -913,6 +789,126 @@
     <GUI>
       <xloc>768</xloc>
       <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>REST client</name>
+    <type>Rest</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <applicationType>TEXT PLAIN</applicationType>
+    <method>GET</method>
+    <url/>
+    <urlInField>Y</urlInField>
+    <dynamicMethod>N</dynamicMethod>
+    <methodFieldName/>
+    <urlField>URL</urlField>
+    <bodyField/>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <preemptive>N</preemptive>
+    <trustStoreFile/>
+    <trustStorePassword>Encrypted </trustStorePassword>
+    <headers>
+      </headers>
+    <parameters>
+      </parameters>
+    <matrixParameters>
+      </matrixParameters>
+    <result>
+      <name>result</name>
+      <code/>
+      <response_time/>
+      <response_header/>
+    </result>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Temperature</name>
+      </field>
+      <field>
+        <name>Apparent_temperature</name>
+      </field>
+      <field>
+        <name>Wind</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values </name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Days</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

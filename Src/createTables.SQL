@@ -15,7 +15,7 @@ ALTER TABLE IF EXISTS healthplus.alerts
 
 CREATE TABLE IF NOT EXISTS healthplus.eranalytics
 (
-    "id" varchar(255) NOT NULL,
+    "id" varchar(255),
     "date" varchar(255),
     "condition" varchar(255),
     "severity" varchar(255),
@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS healthplus.eranalytics
     "humidity" integer,
     "aqi" integer,
     "aqs" varchar(255),
-    CONSTRAINT "eranalytics_pkey" PRIMARY KEY ("id")
 )
 
 TABLESPACE pg_default;

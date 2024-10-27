@@ -1,9 +1,1 @@
-{
-    "data": [
-        {
-            "Wind": 13.4,
-            "Temperature": 17.5,
-            "Apparent_temperature": 17.8
-        }
-    ]
-}
+{"data":[{"Wind":3.3,"Temperature":8.1,"Apparent_temperature":6.9}]}

@@ -458,7 +458,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>${input}\air_quality_sensor_data.csv</filename>
+    <filename>${Internal.Entry.Current.Directory}/../Data/Input/air_quality_sensor_data.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -648,8 +648,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>240</yloc>
+      <xloc>192</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -672,7 +672,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>${output}\AirQualityData</name>
+      <name>${Internal.Entry.Current.Directory}/../Data/Output/AirQualityData</name>
       <extention>json</extention>
       <append>N</append>
       <split>N</split>
@@ -722,8 +722,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>240</yloc>
+      <xloc>480</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -771,8 +771,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>240</yloc>
+      <xloc>352</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

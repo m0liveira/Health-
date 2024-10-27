@@ -345,7 +345,7 @@
       <sql/>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Src\createTables.SQL</sqlfilename>
+      <sqlfilename>${Internal.Entry.Current.Directory}/../Src/createTables.SQL</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>PostgresConnection</connection>
       <parallel>N</parallel>
@@ -397,7 +397,7 @@
       <sql/>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\mateu\OneDrive\Ambiente de Trabalho\HealthPlus\Src\createSchema.SQL</sqlfilename>
+      <sqlfilename>${Internal.Entry.Current.Directory}/../Src/createSchema.SQL</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>PostgresConnection</connection>
       <parallel>N</parallel>
